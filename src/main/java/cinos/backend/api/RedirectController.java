@@ -26,4 +26,9 @@ public class RedirectController {
         return ResponseEntity.ok().body(project);
     }
 
+    @GetMapping(path="/test")
+    ResponseEntity<?> test(){
+        return ResponseEntity.ok().body("Sucefully Deployed");
+    }
+
 }
