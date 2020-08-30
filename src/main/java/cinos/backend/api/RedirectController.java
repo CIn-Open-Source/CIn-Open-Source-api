@@ -1,11 +1,9 @@
 package cinos.backend.api;
 
-import java.util.List;
-import java.util.UUID;
 
 import cinos.backend.exceptions.MissingProjectException;
 import cinos.backend.model.Project;
-import cinos.backend.service.ProjectInfoService;
+import cinos.backend.service.RedirectService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,17 +11,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping({"/api/projects"})
-public class ProjectController {
+@RequestMapping({"/api/redirect"})
+public class RedirectController {
 
-    private ProjectInfoService projectInfoService;
+    private RedirectService redirectService;
 
-    @GetMapping(path = "/{id}")
-    public ResponseEntity<?> getDocument(@PathVariable Long id) throws MissingProjectException {
-        Project project = projectInfoService.getDocument(id).orElseThrow(MissingProjectException::new);
+    @GetMapping(path = "/github/repos/{name}")
+    public ResponseEntity<?> getRepoInfo(@PathVariable String name) throws MissingProjectException, IOException {
+        Project project = redirectService.getRepoInfo(name).orElseThrow(MissingProjectException::new);
         return ResponseEntity.ok().body(project);
     }
+
 }
