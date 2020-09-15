@@ -16,6 +16,7 @@ import java.util.ArrayList;
 @AllArgsConstructor
 @RestController
 @RequestMapping({"/api/redirect"})
+@ControllerAdvice
 public class RedirectController {
 
     private RedirectService redirectService;

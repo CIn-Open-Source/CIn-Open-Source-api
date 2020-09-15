@@ -15,6 +15,7 @@ import java.util.Map;
 @AllArgsConstructor
 @RestController
 @RequestMapping({"/api/projects"})
+@ControllerAdvice
 public class ProjectInfoController {
 
     private StatisticsService statisticsService;
