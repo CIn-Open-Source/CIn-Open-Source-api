@@ -4,18 +4,19 @@ package cinos.backend.api;
 import cinos.backend.exceptions.MissingProjectException;
 import cinos.backend.model.Project;
 import cinos.backend.service.RedirectService;
+import cinos.backend.service.StatisticsService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+@CrossOrigin
 @AllArgsConstructor
 @RestController
 @RequestMapping({"/api/redirect"})
+@ControllerAdvice
 public class RedirectController {
 
     private RedirectService redirectService;
