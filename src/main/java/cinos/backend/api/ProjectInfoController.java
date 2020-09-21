@@ -1,8 +1,5 @@
 package cinos.backend.api;
 
-
-import cinos.backend.exceptions.MissingTypeException;
-import cinos.backend.model.StatisticsType;
 import cinos.backend.service.StatisticsService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
